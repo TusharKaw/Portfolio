@@ -1,39 +1,64 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaTimes, FaBriefcase, FaProjectDiagram, FaGraduationCap, FaTrophy, FaTools } from 'react-icons/fa';
 import './Sidebar.css';
 
-const Sidebar = ({ contact }) => {
+const Sidebar = ({ contact, isOpen, toggleSidebar }) => {
   const { email, phone, github, linkedin } = contact;
 
+  // Navigation links
+  const navLinks = [
+    { to: '/', label: 'Experience', icon: <FaBriefcase /> },
+    { to: '/projects', label: 'Projects', icon: <FaProjectDiagram /> },
+    { to: '/skills', label: 'Skills', icon: <FaTools /> },
+    { to: '/education', label: 'Education', icon: <FaGraduationCap /> },
+    { to: '/achievements', label: 'Achievements', icon: <FaTrophy /> },
+    { to: '/contact', label: 'Contact', icon: <FaEnvelope /> }
+  ];
+
   const sidebarVariants = {
-    hidden: {
-      x: -100,
+    hidden: { 
+      x: '100%',
       opacity: 0
     },
     visible: {
       x: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         when: "beforeChildren",
-        staggerChildren: 0.2
+        staggerChildren: 0.1
+      }
+    },
+    exit: {
+      x: '100%',
+      opacity: 0,
+      transition: {
+        duration: 0.3
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
+    hidden: { opacity: 0, x: 20 },
     visible: { opacity: 1, x: 0 }
   };
 
   return (
     <motion.div 
-      className="sidebar"
+      className={`sidebar ${isOpen ? 'sidebar-mobile-open' : ''}`}
       variants={sidebarVariants}
       initial="hidden"
       animate="visible"
+      exit="exit"
     >
+      <div className="sidebar-header">
+        <button className="close-sidebar" onClick={toggleSidebar}>
+          <FaTimes />
+        </button>
+      </div>
+      
       <div className="sidebar-profile">
         <motion.div 
           className="profile-image"
@@ -44,6 +69,26 @@ const Sidebar = ({ contact }) => {
           <div className="profile-placeholder">TK</div>
         </motion.div>
       </div>
+
+      {/* Navigation Links */}
+      <motion.div className="sidebar-nav" variants={itemVariants}>
+        <h3>Navigation</h3>
+        <ul className="nav-list">
+          {navLinks.map((link, index) => (
+            <motion.li 
+              key={link.to}
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link to={link.to} className="nav-link" onClick={isOpen ? toggleSidebar : undefined}>
+                <span className="nav-icon">{link.icon}</span>
+                <span>{link.label}</span>
+              </Link>
+            </motion.li>
+          ))}
+        </ul>
+      </motion.div>
 
       <motion.div 
         className="sidebar-contact"
