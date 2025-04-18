@@ -13,19 +13,15 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/resume-portfolio')
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log('MongoDB Connection Error:', err));
 
-// Routes
 app.get('/api', (req, res) => {
   res.json({ message: 'Welcome to Tushar Kaw\'s Resume API' });
 });
 
-// Resume data endpoint
 app.get('/api/resume-data', (req, res) => {
-  // This would typically come from a database, but for simplicity we're hardcoding it
   const resumeData = {
     name: "TUSHAR KAW",
     contact: {
