@@ -1,0 +1,111 @@
+.education-section {
+  padding-bottom: 20px;
+}
+
+.education-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.university-name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.university-name h3 {
+  font-size: 20px;
+  color: #2d3748;
+  margin-left: 10px;
+}
+
+.edu-icon {
+  color: #4299e1;
+  font-size: 20px;
+}
+
+.education-details {
+  color: #4a5568;
+}
+
+.degree {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.education-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.meta-icon {
+  margin-right: 6px;
+  color: #4299e1;
+}
+
+.period, .gpa {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #718096;
+}
+
+.education-quote {
+  padding: 20px;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+blockquote {
+  position: relative;
+  font-style: italic;
+  color: #4a5568;
+  padding: 0 20px;
+  margin: 0;
+}
+
+blockquote::before,
+blockquote::after {
+  content: """;
+  font-size: 30px;
+  color: #4299e1;
+  position: absolute;
+  left: 0;
+  top: -5px;
+}
+
+blockquote::after {
+  content: """;
+  left: auto;
+  right: 0;
+}
+
+cite {
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+  font-style: normal;
+  font-weight: 500;
+  color: #718096;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .education-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .gpa {
+    margin-top: 10px;
+  }
+} 
