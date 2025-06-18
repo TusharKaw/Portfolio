@@ -11,7 +11,7 @@ const Stats = () => {
         </div>
         <div className="stat-item">
           <h3>2+</h3>
-          <p>Years pf<br />Experience</p>
+          <p>years of<br />Experience</p>
         </div>
         <div className="stat-item">
           <h3>95+</h3>
