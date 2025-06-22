@@ -97,12 +97,8 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .project-card:hover .project-overlay {
     opacity: 1;
+    transition: opacity 0.3s ease;
   }
   
   .project-tags {
@@ -121,7 +117,7 @@
   
   .project-link {
     align-self: flex-end;
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--primary-beige);
     color: var(--text-black);
     width: 40px;
     height: 40px;

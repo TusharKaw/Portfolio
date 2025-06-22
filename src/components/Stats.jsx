@@ -6,20 +6,20 @@ const Stats = () => {
     <section className="stats">
       <div className="stats-container">
         <div className="stat-item">
-          <h3>10+</h3>
+          <h3>15+</h3>
           <p>Projects<br />Delivered</p>
         </div>
         <div className="stat-item">
           <h3>2+</h3>
-          <p>years of<br />Experience</p>
+          <p>Years of<br />Experience</p>
         </div>
         <div className="stat-item">
-          <h3>95+</h3>
+          <h3>95%</h3>
           <p>Stakeholder<br />Satisfaction</p>
         </div>
         <div className="stat-item">
-          <h3>30+</h3>
-          <p>User Engagement<br />Increased</p>
+          <h3>30%</h3>
+          <p>User Engagement<br />Increased (via Analytics)</p>
         </div>
       </div>
     </section>

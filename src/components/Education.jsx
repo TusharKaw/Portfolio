@@ -22,10 +22,17 @@ const Education = () => {
   const courses = [
     {
       id: 1,
+      title: 'Agile Project Management',
+      institution: 'Alison',
+      period: <text style={{color:'#000'}}>2025</text>,
+      certificate: 'https://alison.com/certification/check/64fd7dc8e0'
+    },
+    {
+      id: 2,
       title: 'Internet & Web Development',
       institution: 'Udemy',
       period: <text style={{color:'#000'}}>2022</text>
-    }
+    },
   ];
 
   return (
@@ -60,6 +67,11 @@ const Education = () => {
                     <h4 className="education-degree">{course.title}</h4>
                   </div>
                   <p className="education-institution">{course.institution}</p>
+                  {course.certificate && (
+                    <a href={course.certificate} target="_blank" rel="noopener noreferrer" className="certificate-link">
+                      <text style={{color:'brown'}}>View Certificate</text>
+                    </a>
+                  )}
                 </div>
               ))}
             </div>

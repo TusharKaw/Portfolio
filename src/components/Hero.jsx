@@ -58,7 +58,7 @@ const Hero = () => {
           <div className="hero-btns">
             <motion.a 
               //href="#contact"
-              href="/Resume.pdf"
+              href="/Tushar_Kaw_Resume.pdf"
               download="Tushar_Kaw_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"

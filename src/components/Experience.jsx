@@ -5,7 +5,7 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      position: 'Jr. Project Manager',
+      position: 'Project Manager',
       company: 'Abhiwan Technology Pvt Ltd',
       location: 'Noida, India',
       period: <text style={{color:'#000'}}>March 2024 - Present</text>,
