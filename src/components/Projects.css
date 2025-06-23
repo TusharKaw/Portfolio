@@ -149,6 +149,13 @@
   line-height: 1.6;
 }
 
+.project-info .team-size {
+  font-size: 0.9rem;
+  color: var(--text-light-gray);
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
 .project-icon {
   font-size: 4rem;
   color: var(--primary-beige);

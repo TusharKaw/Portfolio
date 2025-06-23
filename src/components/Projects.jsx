@@ -27,7 +27,9 @@ const Projects = () => {
     {
       id: 1,
       title: 'Luna AI',
+      techStack: <text style={{color:'var(--primary-beige)'}}>React & Node.js</text>,
       description: 'An AI platform where user can create their virtual AI girlfriends / AI influencers, chat with them, create videos with them or advertise their products.',
+      teamSize: '3', 
       category: ['websites'],
       image: lunaiImage,
       url: 'https://github.com/TusharKaw/LUNA-AI'
@@ -35,7 +37,9 @@ const Projects = () => {
     {
       id: 2,
       title: 'Bankopoly.io',
+      techStack: <text style={{color:'var(--primary-beige)'}}>Unity & Node.js</text>, 
       description: 'A blockchain-based NFT WebGL Game on the Cardano network, featuring secure wallet connection, NFT skins, and multiplayer/vsBot gameplays.',
+      teamSize: '5', 
       category: ['games','blockchain'],
       image: bankopolyImage,
       url: 'https://bankopoly.io/'
@@ -43,7 +47,9 @@ const Projects = () => {
   {
     id: 3,
     title: 'NachosNFT',
+    techStack: <text style={{color:'var(--primary-beige)'}}>React & Node.js</text>,
     description: 'A unique web-based platform built on the Cardano blockchain, centered around upgradable NFTs and competitive gameplay mechanics.',
+    teamSize: '4', 
     category: ['websites','blockchain'],
     image: nachosNFTImage,
     url: 'https://www.nachoxyz.com/'
@@ -51,7 +57,9 @@ const Projects = () => {
 {
   id: 4,
   title: 'Bet By Heart',
+  techStack: <text style={{color:'var(--primary-beige)'}}>React & Node.js</text>,
   description: 'An interactive online betting platform featuring games like Blackjack, Teen Patti, Chess, Ludo, and Derby. Integrated referral and rewards systems to boost user engagement.',
+  teamSize: '5', 
   category: ['websites'],
   image: betbyheartImage,
   url: 'http://beta.betbyheart.in'
@@ -59,7 +67,9 @@ const Projects = () => {
 {
   id: 5,
   title: 'Active Shooter VR',
+  techStack: <text style={{color:'var(--primary-beige)'}}>Unreal Engine</text>,
   description: 'A VR training simulation developed for Abu Dhabi Police, integrating KAT VR, Forcetube Provolver, and MetaHumans for an immersive training experience.',
+  teamSize: '5', 
   category: ['games'],
   image: ActiveShooter,
   url: 'https://www.artstation.com/artwork/lGXm4V'
@@ -67,7 +77,9 @@ const Projects = () => {
     {
       id: 6,
       title: 'Personal Chatroom',
+      techStack: <text style={{color:'var(--primary-beige)'}}>React & Node.js</text>, 
       description: 'A private discord like chatroom made by Me, I deploy this time to time on TOR browser with variable .onion links, to chat privately.',
+      teamSize: '2', 
       category: ['websites'],
       image: chatroomImage,
       url: 'https://github.com/TusharKaw/Personal-Chatroom'
@@ -188,8 +200,13 @@ const Projects = () => {
 </div>
 
               <div className="project-info">
-                <h3>{project.title}</h3>
+                <h3>
+                  {project.title}
+                  <span> | </span>
+                  <span style={{ fontStyle: 'italic', fontWeight: 'normal' }}>{project.techStack || 'No tech stack'}</span>
+                </h3>
                 <p>{project.description}</p>
+                <p className="team-size"><strong>Team size:</strong> {project.teamSize || 'Not specified'}</p>
               </div>
             </motion.div>
           ))}

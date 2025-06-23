@@ -1,7 +1,7 @@
 ﻿import React, { useState } from 'react';
 import './Contact.css';
 import emailjs from 'emailjs-com';
-import Swal from 'sweetalert2'; // 🚀 Import SweetAlert2
+import Swal from 'sweetalert2';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -11,7 +11,7 @@ const Contact = () => {
         message: '',
     });
 
-    const [loading, setLoading] = useState(false); // loading state
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
