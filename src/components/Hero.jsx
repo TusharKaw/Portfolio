@@ -50,7 +50,7 @@ const Hero = () => {
     <section id="home" className="hero" ref={heroRef}>
       <div className="hero-container">
         <div className="hero-content" ref={contentRef}>
-          <h3>Hello, I am Tushar Kaw 👋🏻</h3>
+          <h2>Hello, I am Tushar Kaw 👋🏻</h2>
           <h1>Project <span>Manager</span></h1>
           <p>
           Tech-savvy Project Manager with a proven track record of leading cross-functional teams to deliver high-impact web, gaming, and blockchain projects. Skilled in Agile, Scrum, and stakeholder communication, driving efficiency and user engagement.
