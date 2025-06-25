@@ -101,7 +101,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-black);
+  color: #150D00;
   transition: all 0.3s ease;
 }
 
