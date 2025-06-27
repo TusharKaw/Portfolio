@@ -62,7 +62,7 @@ const Projects = () => {
   teamSize: '5', 
   category: ['websites'],
   image: betbyheartImage,
-  url: 'http://beta.betbyheart.in'
+  url: 'https://dev-game.abhiwandemos.com/'
 },
 {
   id: 5,

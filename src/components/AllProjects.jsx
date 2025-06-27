@@ -80,7 +80,7 @@ const Projects = () => {
   teamSize: '5', 
   category: ['websites'],
   image: betbyheartImage,
-  url: 'http://beta.betbyheart.in'
+  url: 'https://dev-game.abhiwandemos.com/teenpatti/home'
 },
 {
   id: 6,
@@ -130,7 +130,7 @@ const Projects = () => {
   teamSize: '2', 
   category: ['websites'],
   image: Shivshiksha,
-  url: 'https://www.artstation.com/artwork/AZ58EX'
+  url: 'https://shivshiksha.abhiwandemos.com/'
 },
 {
   id: 11,
