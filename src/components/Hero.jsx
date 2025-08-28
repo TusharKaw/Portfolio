@@ -51,7 +51,7 @@ const Hero = () => {
       <div className="hero-container">
         <div className="hero-content" ref={contentRef}>
           <h2>Hello, I am Tushar Kaw 👋🏻</h2>
-          <h1>Project & Operation<span>Manager</span></h1>
+          <h1>Project & Operation <span>Manager</span></h1>
           <p>
           Tech-savvy Project & Operations Manager with a track record of leading cross-functional teams to deliver high-impact Web, Gaming, Apps & Blockchain projects. Skilled in Agile & Scrum, driving efficiency and user engagement.
           </p>

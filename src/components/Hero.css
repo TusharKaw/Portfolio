@@ -5,7 +5,7 @@
   position: relative;
   overflow: hidden;
   background: #000;
-  padding: 80px 0;
+  padding: 40px 0  100px 0;
 }
 
 .hero-container {
@@ -167,7 +167,7 @@
   left: -10px;
   right: -10px;
   bottom: -10px;
-  background-image: url('./../assets/Tushar.jpg');
+  background-image: url('./../assets/Tushar2.jpeg');
   background-size: cover; /* ensure image fills the area */
   background-position: center;
 

@@ -18,6 +18,8 @@ import connect from '../assets/connect.webp';
 import aiims from '../assets/aiims.jpeg';
 import metaschool from '../assets/metaschool.png';
 import videosurf from '../assets/videosurf.png';
+import nevacms from '../assets/nevacms.png';
+import nevaebook from '../assets/nevaebook.png';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -32,6 +34,26 @@ const Projects = () => {
   ];
 
   const projects = [
+    {
+      id: 1,
+      title: 'National eVidhan Application',
+      techStack: <text style={{color:'var(--primary-beige)'}}>C# Dotnet</text>,
+      description: 'One Nation One Application, an online platform built for Delhi Legislative Assembly for the digitization of Legislative Proceedings and Bills.',
+      teamSize: '16', 
+      category: ['websites','apps'],
+      image: nevacms,
+      url: 'https://cms.neva.gov.in/'
+    },
+    {
+      id: 1,
+      title: 'National eVidhan e-book',
+      techStack: <text style={{color:'var(--primary-beige)'}}>C# Dotnet</text>,
+      description: 'One Nation One Application, an online platform built to store and display all the Legislative proceedings and bills, Built for all States & UTs of India.',
+      teamSize: '16', 
+      category: ['websites','apps'],
+      image: nevaebook,
+      url: 'https://ebook.neva.gov.in/'
+    },
     {
       id: 1,
       title: 'Luna AI',

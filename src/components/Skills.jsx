@@ -12,7 +12,7 @@ const Skills = () => {
   });
 
   const technicalSkills = [
-    { name: 'Project / Product Management', level: 95 },
+    { name: 'Project / Operations Management', level: 95 },
     { name: 'Agile / Scrum', level: 90 },
     { name: 'API Documentation', level: 90 },
     { name: 'Team Leadership', level: 95 },
