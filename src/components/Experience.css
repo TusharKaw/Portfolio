@@ -14,11 +14,12 @@
   content: '';
   position: absolute;
   width: 2px;
-  background: var(--primary-beige);
+  background: linear-gradient(180deg, transparent 0%, var(--primary-beige) 10%, var(--primary-beige) 90%, transparent 100%);
   top: 0;
   bottom: 0;
   left: 50%;
   margin-left: -1px;
+  box-shadow: 0 0 15px var(--primary-beige);
 }
 
 .timeline-item {
@@ -106,23 +107,23 @@
 
 @media screen and (max-width: 992px) {
   .timeline::after {
-    left: 31px;
+    left: 20px;
   }
-  
+
   .timeline-item {
     width: 100%;
-    padding-left: 50px;
+    padding-left: 40px;
     padding-right: 1px;
     text-align: left;
   }
-  
+
   .timeline-item.left::after,
   .timeline-item.right::after {
-    left: 18px;
+    left: 7px;
   }
-  
+
   .timeline-item.left,
   .timeline-item.right {
     left: 0;
   }
-} 
+}

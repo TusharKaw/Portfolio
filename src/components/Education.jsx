@@ -22,13 +22,20 @@ const Education = () => {
   const courses = [
     {
       id: 1,
+      title: 'State level Project Management | NeVA',
+      institution: 'Ministry of Parliamentary Affairs | National Informatics Centre',
+      period: <text style={{color:'#000'}}>2025</text>,
+      certificate: 'https://alison.com/certification/check/64fd7dc8e0'
+    },
+    {
+      id: 2,
       title: 'Agile Project Management',
       institution: 'Alison',
       period: <text style={{color:'#000'}}>2025</text>,
       certificate: 'https://alison.com/certification/check/64fd7dc8e0'
     },
     {
-      id: 2,
+      id: 3,
       title: 'Internet & Web Development',
       institution: 'Udemy',
       period: <text style={{color:'#000'}}>2022</text>

@@ -1,14 +1,20 @@
 import React from 'react';
 import './Experience.css';
+import delhiLogo from '../assets/company/delhi.svg';
+import nicLogo from '../assets/company/nic.svg';
+import nipponLogo from '../assets/company/nippon.svg';
+import abhiwanLogo from '../assets/company/abhiwan.svg';
+import airtelLogo from '../assets/company/airtel.svg';
+import excitelLogo from '../assets/company/excitel.svg';
 
 const Experience = () => {
   const experiences = [
     {
       id: 1,
       position: 'Operations Manager',
-      company: 'NeVA - National Informatics Centre',
+      company: 'Delhi Legislative Assembly | National Informatics Centre | Nippon Data Systems',
       location: 'Delhi, India',
-      period: <text style={{color:'#000'}}>July 2025 - Present</text>,
+      period: <span style={{ color: '#000' }}>July 2025 - Present</span>,
       responsibilities: [
         'Leading the operational planning & execution of the NeVA (National e-Vidhan Application) project at the Delhi Legislative Assembly, for the digitization of legislative processes in alignment with the Government of India’s Digital India mission.',
         'Coordinating with cross-functional teams including IT developers, legislative staff, and vendor partners to ensure seamless implementation of the e-Vidhan platform.',
@@ -16,14 +22,15 @@ const Experience = () => {
         'Supervised quality assurance and compliance checks to ensure adherence to NIC and MeitY standards for security, accessibility, and data integrity.',
         'Streamlined legislative operations by implementing paperless workflows and real-time document sharing, contributing to a 40% reduction in session preparation time.',
         'Monitoring performance metrics and user feedback to iterate on workflows and platform features, leading to a 90% satisfaction rate among end-users.'
-      ]
+      ],
+      logos: [delhiLogo, nicLogo, nipponLogo]
     },
     {
       id: 2,
       position: 'Project Manager',
       company: 'Abhiwan Technology Pvt Ltd',
       location: 'Noida, India',
-      period: <text style={{color:'#000'}}>March 2024 - July 2025</text>,
+      period: <span style={{ color: '#000' }}>March 2024 - July 2025</span>,
       responsibilities: [
         'Leading and managing teams of developers and designers to successfully deliver 10+ projects, including web apps, games, VR apps, and blockchain-based projects.',
         'Overseeing project lifecycles from planning to deployment, ensuring on-time and on-budget execution.',
@@ -31,32 +38,35 @@ const Experience = () => {
         'Contributing to increasing user engagement by 30% on Cardano blockchain based apps and NFT based games.',
         'Collaborated with cross-functional teams to lead project execution, manage timelines, and ensure high-quality deliverables.',
         'Delivering comprehensive client solutions across Risk Management and QA domains, aligning scope, resources, and timelines with Agile/Scrum methodologies.'
-      ]
+      ],
+      logos: [abhiwanLogo]
     },
     {
       id: 3,
       position: 'Project Manager Intern',
       company: 'Bharti Airtel',
       location: 'Gurugram, Haryana',
-      period: <text style={{color:'#000'}}>February 2023 - June 2023</text>,
+      period: <span style={{ color: '#000' }}>February 2023 - June 2023</span>,
       responsibilities: [
         'Deployed MPLS & SD-WAN for B2B enterprise clients, including IOCL and Maruti Suzuki.',
         'Coordinated with network planning, security, and CX teams to ensure seamless deployment accelerating project timelines by 20%.',
         'Implemented client feedback loops using daily logs and reporting systems, enhancing SLA adherence by 15%.',
         'Integrated productivity tools like Jira into project workflows, leading to a 15% increase in team efficiency.'
-      ]
+      ],
+      logos: [airtelLogo]
     },
     {
       id: 4,
       position: 'Network Engineer',
       company: 'Excitel Broadbands',
       location: 'Delhi, India',
-      period: <text style={{color:'#000'}}>August 2022 - September 2022</text>,
+      period: <span style={{ color: '#000' }}>August 2022 - September 2022</span>,
       responsibilities: [
         'Designed and optimized PAN & LAN infrastructures, contributing to a 20% improvement in network stability of internal systems.',
         'Assisted in planning Adhoc networks and enhanced router configurations, resulting in 15% better coverage and reduced latency.',
         'Supported network topology analysis and optimization, helping improve bandwidth distribution efficiency by 25%.',
-      ]
+      ],
+      logos: [excitelLogo]
     }
   ];
 
@@ -64,13 +74,23 @@ const Experience = () => {
     <section id="experience" className="experience">
       <div className="container">
         <h2 className="section-title">My <span>Experience</span></h2>
-        
+
         <div className="timeline">
           {experiences.map((exp, index) => (
             <div key={exp.id} className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
               <div className="timeline-content card">
-                <div className="timeline-date">
-                  <span>{exp.period}</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', justifyContent: index % 2 === 0 ? 'flex-end' : 'flex-start', marginBottom: '15px' }}>
+                  {index % 2 === 0 && exp.logos && exp.logos.map((logo, i) => (
+                    <img key={i} src={logo} alt="company logo" style={{ height: '30px', width: 'auto' }} />
+                  ))}
+
+                  <div className="timeline-date" style={{ marginBottom: 0 }}>
+                    {exp.period}
+                  </div>
+
+                  {index % 2 !== 0 && exp.logos && exp.logos.map((logo, i) => (
+                    <img key={i} src={logo} alt="company logo" style={{ height: '30px', width: 'auto' }} />
+                  ))}
                 </div>
                 <h3>{exp.position}</h3>
                 <h4>{exp.company}</h4>
