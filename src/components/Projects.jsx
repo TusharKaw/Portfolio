@@ -86,16 +86,6 @@ const Projects = () => {
       image: ActiveShooter,
       url: 'https://www.artstation.com/artwork/lGXm4V'
     },
-    {
-      id: 7,
-      title: 'Personal Chatroom',
-      techStack: <text style={{ color: 'var(--primary-beige)' }}>React & Node.js</text>,
-      description: 'A private discord like chatroom made by Me, I deploy this time to time on TOR browser with variable .onion links, to chat privately.',
-      teamSize: '2',
-      category: ['websites'],
-      image: chatroomImage,
-      url: 'https://github.com/TusharKaw/Personal-Chatroom'
-    }
   ];
 
   const filteredProjects = activeFilter === 'all'
