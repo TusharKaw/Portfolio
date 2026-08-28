@@ -75,7 +75,7 @@ const Projects = () => {
       teamSize: '4',
       category: ['ai', 'websites'],
       image: imagine,
-      url: 'https://imagine.yourcrush.ai/'
+      url: 'https://yourcrush.ai/imagine-labs'
     },
     {
       id: 5,
@@ -232,6 +232,22 @@ const Projects = () => {
   const filteredProjects = activeFilter === 'all'
     ? projects
     : projects.filter(project => project.category.includes(activeFilter));
+
+  useEffect(() => {
+    document.title = "All Projects | Tushar Kaw - Project & Operations Manager";
+    
+    // Update canonical link
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (canonicalLink) {
+      canonicalLink.setAttribute('href', 'https://tusharkaw.netlify.app/allprojects');
+    }
+    
+    // Update meta description
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', 'Explore all projects managed and delivered by Tushar Kaw, ranging from Web development (MERN/Next.js) to VR simulations, Unity, and blockchain-based games.');
+    }
+  }, []);
 
   useEffect(() => {
     // Animate projects when filter changes

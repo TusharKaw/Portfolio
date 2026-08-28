@@ -6,11 +6,11 @@ const Stats = () => {
     <section className="stats">
       <div className="stats-container">
         <div className="stat-item">
-          <h3>15+</h3>
-          <p>Projects<br />Delivered</p>
+          <h3>25+</h3>
+          <p>Completed &<br />Shipped Projects</p>
         </div>
         <div className="stat-item">
-          <h3>2+</h3>
+          <h3>3+</h3>
           <p>Years of<br />Experience</p>
         </div>
         <div className="stat-item">
@@ -18,8 +18,8 @@ const Stats = () => {
           <p>Stakeholder<br />Satisfaction</p>
         </div>
         <div className="stat-item">
-          <h3>30%</h3>
-          <p>User Engagement<br />Increased (via Analytics)</p>
+          <h3>40%</h3>
+          <p>Reduction in<br />Time-to-Market</p>
         </div>
       </div>
     </section>

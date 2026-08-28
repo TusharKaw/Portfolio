@@ -321,7 +321,31 @@ const BlogPost = () => {
 
   // Get the blog post data or show 404
   const post = blogContent[slug];
-  
+
+  React.useEffect(() => {
+    if (post) {
+      document.title = `${post.title} | Tushar Kaw Blog`;
+      
+      // Update canonical link
+      let canonicalLink = document.querySelector('link[rel="canonical"]');
+      if (canonicalLink) {
+        canonicalLink.setAttribute('href', `https://tusharkaw.netlify.app/blog/${slug}`);
+      } else {
+        canonicalLink = document.createElement('link');
+        canonicalLink.setAttribute('rel', 'canonical');
+        canonicalLink.setAttribute('href', `https://tusharkaw.netlify.app/blog/${slug}`);
+        document.head.appendChild(canonicalLink);
+      }
+      
+      // Update meta description
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        const plainText = post.content.replace(/<[^>]*>/g, '').trim().substring(0, 160) + '...';
+        metaDesc.setAttribute('content', plainText);
+      }
+    }
+  }, [slug, post]);
+
   if (!post) {
     return (
       <div className="blog-post-container">

@@ -44,7 +44,7 @@ const Projects = () => {
       teamSize: '4',
       category: ['ai', 'websites'],
       image: imagine,
-      url: 'https://imagine.yourcrush.ai/'
+      url: 'https://yourcrush.ai/imagine-labs'
     },
     {
       id: 3,

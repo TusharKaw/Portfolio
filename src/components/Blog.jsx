@@ -58,6 +58,22 @@ const Blog = () => {
     
   ];
 
+  React.useEffect(() => {
+    document.title = "Blogs | Tushar Kaw - Project & Operations Manager";
+    
+    // Update canonical link
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (canonicalLink) {
+      canonicalLink.setAttribute('href', 'https://tusharkaw.netlify.app/blogs');
+    }
+    
+    // Update meta description
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', 'Read insights and articles on Project Management, Agile methodologies, remote team leadership, and risk mitigation strategies by Tushar Kaw.');
+    }
+  }, []);
+
   return (
     <section id="blog" className="blog-section">
       <div className="container">

@@ -61,18 +61,36 @@ function App() {
     );
   }
 
-  const HomePage = () => (
-    <>
-      <Hero />
-      <Stats />
-      <Services />
-      <Projects />
-      <Experience />
-      <Education />
-      <Skills />
-      <Contact />
-    </>
-  );
+  const HomePage = () => {
+    useEffect(() => {
+      document.title = "Tushar Kaw | Project & Operations Manager";
+      
+      // Update canonical link
+      let canonicalLink = document.querySelector('link[rel="canonical"]');
+      if (canonicalLink) {
+        canonicalLink.setAttribute('href', 'https://tusharkaw.netlify.app/');
+      }
+      
+      // Update meta description
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', 'Portfolio of Tushar Kaw, a Project Manager with hands-on experience in Agile, Web Development, Unity game development, and blockchain-based platforms. Projects include MERN stack apps, Web3 games, and Unreal-based simulations.');
+      }
+    }, []);
+
+    return (
+      <>
+        <Hero />
+        <Stats />
+        <Services />
+        <Projects />
+        <Experience />
+        <Education />
+        <Skills />
+        <Contact />
+      </>
+    );
+  };
 
   return (
     <Router>
