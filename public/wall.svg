@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="80" viewBox="0 0 160 80">
+  <!-- Dark brick wall tile (repeats seamlessly). Mortar = background, bricks = rects, grain = noise filter. -->
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" />
+      <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.28 0" />
+    </filter>
+    <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.05" />
+      <stop offset="1" stop-color="#000" stop-opacity="0.25" />
+    </linearGradient>
+  </defs>
+
+  <rect width="160" height="80" fill="#0b0805" />
+
+  <!-- row 1 -->
+  <rect x="2" y="2" width="76" height="36" rx="2" fill="#2b1e11" />
+  <rect x="82" y="2" width="76" height="36" rx="2" fill="#251a0e" />
+  <!-- row 2 (offset half a brick, wraps around the tile edge) -->
+  <rect x="-38" y="42" width="76" height="36" rx="2" fill="#2f2113" />
+  <rect x="42" y="42" width="76" height="36" rx="2" fill="#22170c" />
+  <rect x="122" y="42" width="76" height="36" rx="2" fill="#2f2113" />
+
+  <!-- subtle top-light / bottom-shadow on each brick -->
+  <g fill="url(#shade)">
+    <rect x="2" y="2" width="76" height="36" rx="2" />
+    <rect x="82" y="2" width="76" height="36" rx="2" />
+    <rect x="-38" y="42" width="76" height="36" rx="2" />
+    <rect x="42" y="42" width="76" height="36" rx="2" />
+    <rect x="122" y="42" width="76" height="36" rx="2" />
+  </g>
+
+  <rect width="160" height="80" filter="url(#grain)" />
+</svg>

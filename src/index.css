@@ -1,59 +1,51 @@
-:root {
-  --background-dark: #000;
-  --background-darker: #000;
-  --primary-beige: #8a2be2;
-  --light-beige: #9d4edd;
-  --text-black: #ffffff;
-  --text-gray: #e6e6e6;
-  --text-light-gray: #cccccc;
-  --section-padding: 80px 0;
+@import "tailwindcss";
+
+/*
+  Design tokens. Each one becomes a utility class, e.g.
+  --color-beige -> bg-beige / text-beige / border-beige
+  --font-hand   -> font-hand
+  --animate-chevron -> animate-chevron
+*/
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-hand: 'Caveat', cursive;
+  --font-mono: 'Fira Code', 'Monaco', monospace;
+
+  --color-beige: #c2a474;       /* brand accent */
+  --color-beige-light: #f1e1c6;
+  --color-ink: #e1e1e1;         /* main text */
+  --color-muted: #cccccc;       /* secondary text */
+  --color-panel: #150d00;       /* dark brown surfaces (navbar, footer) */
+  --color-panel-2: #291f10;
+  --color-bronze: #463922;
+  --color-line: #2a2114;        /* subtle borders */
+
+  --animate-chevron: chevron 3s ease-out infinite;
+  --animate-glow-text: glow-text 2s linear alternate infinite;
+
+  @keyframes chevron {
+    25% { opacity: 1; }
+    33% { opacity: 1; transform: translateY(30px); }
+    67% { opacity: 1; transform: translateY(40px); }
+    100% { opacity: 0; transform: translateY(55px) scale3d(0.5, 0.5, 0.5); }
+  }
+
+  @keyframes glow-text {
+    to { opacity: 1; }
+  }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-}
+  body {
+    @apply bg-black font-sans text-ink overflow-x-hidden;
+  }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--background-dark);
-  color: var(--text-black);
-  line-height: 1.5;
-  font-weight: 400;
-  overflow-x: hidden;
-  cursor: none;
-  transition: background-color 0.3s ease;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-img {
-  max-width: 100%;
-}
-
-button {
-  cursor: pointer;
-  font-family: inherit;
-}
-
-input, textarea {
-  font-family: inherit;
-}
-
-::selection {
-  background: var(--primary-beige);
-  color: var(--text-black);
-}
-
-a, button, input[type="submit"], .card, .project-card, .service-card, .navbar-toggle, .skill-icon, .project-img {
-  cursor: none !important;
+  ::selection {
+    @apply bg-beige text-ink;
+  }
 }

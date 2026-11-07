@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import './App.css'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Stats from './components/Stats'
 import Services from './components/Services'
 import Projects from './components/Projects'
 import Experience from './components/Experience'
@@ -14,20 +12,11 @@ import Footer from './components/Footer'
 import Blog from './components/Blog'
 import BlogPost from './components/BlogPost'
 import AllProjects from './components/AllProjects'
-import CustomCursor from './components/CustomCursor'
 import ScrollToTop from './components/ScrollToTop'
+import NotFound from './components/NotFound'
 import { motion, AnimatePresence } from 'framer-motion'
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Simulating page loading
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-  }, []);
-
   // Page transition variants
   const pageVariants = {
     initial: {
@@ -44,22 +33,6 @@ function App() {
       opacity: 0,
     },
   };
-
-  if (isLoading) {
-    return (
-      <div className="loader">
-        <div className="loader-content">
-          <div className="loader-icon">
-            <i className="fas fa-briefcase"></i>
-          </div>
-          <h2>Tushar<span>Kaw</span></h2>
-          <div className="loader-bar">
-            <div className="loader-progress"></div>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   const HomePage = () => {
     useEffect(() => {
@@ -81,7 +54,6 @@ function App() {
     return (
       <>
         <Hero />
-        <Stats />
         <Services />
         <Projects />
         <Experience />
@@ -95,7 +67,6 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <CustomCursor />
       <Navbar />
       <AnimatePresence mode="wait">
         <Routes>
@@ -103,7 +74,7 @@ function App() {
             path="/" 
             element={
               <motion.div
-                className="app"
+                className="mx-auto w-full max-w-7xl px-4"
                 initial="initial"
                 animate="animate"
                 exit="exit"
@@ -117,7 +88,7 @@ function App() {
             path="/allprojects" 
             element={
               <motion.div
-                className="app"
+                className="mx-auto w-full max-w-7xl px-4"
                 initial="initial"
                 animate="animate"
                 exit="exit"
@@ -131,7 +102,7 @@ function App() {
             path="/blogs" 
             element={
               <motion.div
-                className="app"
+                className="mx-auto w-full max-w-7xl px-4"
                 initial="initial"
                 animate="animate"
                 exit="exit"
@@ -145,7 +116,7 @@ function App() {
             path="/blog/:slug" 
             element={
               <motion.div
-                className="app"
+                className="mx-auto w-full max-w-7xl px-4"
                 initial="initial"
                 animate="animate"
                 exit="exit"
@@ -154,6 +125,21 @@ function App() {
                 <BlogPost />
               </motion.div>
             } 
+          />
+          {/* Any unknown URL */}
+          <Route
+            path="*"
+            element={
+              <motion.div
+                className="mx-auto w-full max-w-7xl px-4"
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                variants={pageVariants}
+              >
+                <NotFound />
+              </motion.div>
+            }
           />
         </Routes>
       </AnimatePresence>

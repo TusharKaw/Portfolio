@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import './BlogPost.css';
 import AnimatedSection from './AnimatedSection';
 import blog1 from '../assets/blogs/blog1.png'
 import blog2 from  '../assets/blogs/blog2.avif'
@@ -346,108 +345,105 @@ const BlogPost = () => {
     }
   }, [slug, post]);
 
+  const backLink = "inline-flex items-center gap-2 text-[0.9rem] text-muted transition-colors hover:text-beige";
+  const shareBtn = "flex h-10 w-10 items-center justify-center rounded-full text-[1.1rem] text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_5px_15px_rgba(0,0,0,0.3)]";
+
   if (!post) {
     return (
-      <div className="blog-post-container">
-        <div className="container">
-          <div className="blog-post-404">
-            <h1>Blog Post Not Found</h1>
-            <p>Sorry, the blog post you're looking for doesn't exist.</p>
-            <Link to="/blogs" className="back-to-blogs">
-              ← Back to Blogs
-            </Link>
-          </div>
-        </div>
+      <div className="min-h-screen bg-black px-5 py-[100px] text-center">
+        <h1 className="mb-5 text-[2.5rem] font-bold text-ink">Blog Post Not Found</h1>
+        <p className="mb-[30px] text-[1.1rem] text-muted">Sorry, the blog post you're looking for doesn't exist.</p>
+        <Link to="/blogs" className={backLink}>
+          ← Back to Blogs
+        </Link>
       </div>
     );
   }
 
   return (
-    <div className="blog-post-container">
-      <div className="container">
-        <AnimatedSection>
-          <motion.div 
-            className="blog-post"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            {/* Blog Header */}
-            <div className="blog-post-header">
-              <Link to="/blogs" className="back-to-blogs">
-                <i className="fas fa-arrow-left"></i> Back to Blogs
-              </Link>
-              
-              <div className="blog-post-meta">
-                <div className="blog-post-tags">
-                  {post.tags.map(tag => (
-                    <span key={tag} className="blog-post-tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="blog-post-info">
-                  <span className="blog-post-date">{post.date}</span>
-                  <span className="blog-post-separator">•</span>
-                  <span className="blog-post-author">{post.author}</span>
-                  <span className="blog-post-separator">•</span>
-                  <span className="blog-post-read-time">{post.readTime}</span>
-                </div>
+    <div className="min-h-screen bg-black pt-2.5 pb-[60px] md:px-0 md:py-5">
+      <AnimatedSection>
+        <motion.div
+          className="mx-auto max-w-[800px]"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Blog Header */}
+          <div className="mb-10">
+            <Link to="/blogs" className={`${backLink} mb-[30px]`}>
+              <i className="fas fa-arrow-left"></i> Back to Blogs
+            </Link>
+
+            <div className="mb-5">
+              <div className="flex flex-wrap gap-2.5 text-[0.9rem] text-muted md:justify-start">
+                <span>{post.date}</span>
+                <span className="opacity-50">•</span>
+                <span>{post.author}</span>
+                <span className="opacity-50">•</span>
+                <span>{post.readTime}</span>
               </div>
-              
-              <h1 className="blog-post-title">{post.title}</h1>
             </div>
 
-            {/* Hero Image */}
-            <div className="blog-post-hero">
-              <img src={post.heroImage} alt={post.title} />
-            </div>
+            <h1 className="m-0 text-[1.8rem] leading-tight font-bold text-ink sm:text-[2rem] md:text-[2.5rem]">{post.title}</h1>
+          </div>
 
-            {/* Blog Content */}
-            <div 
-              className="blog-post-content"
-              dangerouslySetInnerHTML={{ __html: post.content }}
+          {/* Hero Image */}
+          <div className="group mb-10 overflow-hidden rounded-[15px]">
+            <img
+              src={post.heroImage}
+              alt={post.title}
+              className="h-[200px] w-full object-cover transition-transform duration-300 group-hover:scale-[1.02] sm:h-[250px] md:h-[400px]"
             />
+          </div>
 
-            {/* Blog Footer */}
-            <div className="blog-post-footer">
-              <div className="blog-post-share">
-                <h4>Share this article</h4>
-                <div className="share-buttons">
-                  <a 
-                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.href)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="share-button twitter"
-                  >
-                    <i className="fab fa-twitter"></i>
-                  </a>
-                  <a 
-                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="share-button linkedin"
-                  >
-                    <i className="fab fa-linkedin-in"></i>
-                  </a>
-                  <a 
-                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="share-button facebook"
-                  >
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                </div>
+          {/* Blog Content: styles for the injected HTML are set here via [&_tag]: selectors */}
+          <div
+            className="text-[1rem] leading-[1.8] text-muted md:text-[1.1rem] [&_h2]:mt-10 [&_h2]:mb-5 [&_h2]:text-[1.5rem] [&_h2]:font-semibold [&_h2]:text-ink md:[&_h2]:text-[1.8rem] [&_h3]:mt-[30px] [&_h3]:mb-[15px] [&_h3]:text-[1.3rem] [&_h3]:font-semibold [&_h3]:text-ink md:[&_h3]:text-[1.4rem] [&_p]:mb-5 [&_ul]:mb-5 [&_ul]:list-disc [&_ul]:pl-[30px] [&_ol]:mb-5 [&_ol]:list-decimal [&_ol]:pl-[30px] [&_li]:mb-2 [&_pre]:my-[25px] [&_pre]:overflow-x-auto [&_pre]:rounded-[10px] [&_pre]:border [&_pre]:border-panel [&_pre]:bg-black [&_pre]:p-[15px] [&_pre]:font-mono [&_pre]:text-[0.8rem] [&_pre]:leading-relaxed md:[&_pre]:p-5 md:[&_pre]:text-[0.9rem] [&_code]:rounded [&_code]:bg-black [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-[0.9em] [&_code]:text-beige [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:text-muted [&_blockquote]:my-[25px] [&_blockquote]:border-l-4 [&_blockquote]:border-beige [&_blockquote]:pl-5 [&_blockquote]:text-[#e6e6e6] [&_blockquote]:italic [&_strong]:font-semibold [&_strong]:text-ink"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+
+          {/* Blog Footer */}
+          <div className="mt-[60px] flex flex-col items-center justify-between gap-[30px] border-t border-white/10 pt-10 text-center md:flex-row md:gap-0 md:text-left">
+            <div>
+              <h4 className="mb-4 text-[1.1rem] font-bold text-ink">Share this article</h4>
+              <div className="flex justify-center gap-4 md:justify-start">
+                <a
+                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.href)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Share on X"
+                  className={`${shareBtn} bg-black ring-1 ring-white/20`}
+                >
+                  <i className="fab fa-x-twitter"></i>
+                </a>
+                <a
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Share on LinkedIn"
+                  className={`${shareBtn} bg-[#0077b5]`}
+                >
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+                <a
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Share on Facebook"
+                  className={`${shareBtn} bg-[#4267b2]`}
+                >
+                  <i className="fab fa-facebook-f"></i>
+                </a>
               </div>
-              
-              <Link to="/blogs" className="back-to-blogs-footer">
-                ← Back to All Blogs
-              </Link>
             </div>
-          </motion.div>
-        </AnimatedSection>
-      </div>
+
+            <Link to="/blogs" className="font-medium text-muted transition-colors hover:text-beige">
+              ← Back to All Blogs
+            </Link>
+          </div>
+        </motion.div>
+      </AnimatedSection>
     </div>
   );
 };

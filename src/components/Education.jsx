@@ -1,5 +1,5 @@
 import React from 'react';
-import './Education.css';
+import SectionTitle from './SectionTitle';
 
 const Education = () => {
   const educations = [
@@ -8,14 +8,14 @@ const Education = () => {
       degree: 'B.Tech in Electronics & Communication Engineering',
       institution: 'Deenbandhu Chhotu Ram University of Science and Technology',
       location: 'Haryana, India',
-      period: <text style={{color:'#000'}}>2019 - 2023</text>
+      period: '2019 - 2023'
     },
     {
       id: 2,
       degree: '12th CBSE (Science - Non Medical)',
       institution: 'Oxford Senior Secondary School',
       location: 'Delhi, India',
-      period: <text style={{color:'#000'}}>2017 - 2019</text>
+      period: '2017 - 2019'
     }
   ];
 
@@ -24,64 +24,68 @@ const Education = () => {
       id: 1,
       title: 'State level Project Management | NeVA',
       institution: 'Ministry of Parliamentary Affairs | National Informatics Centre',
-      period: <text style={{color:'#000'}}>2025</text>,
+      period: '2025',
       certificate: 'https://alison.com/certification/check/64fd7dc8e0'
     },
     {
       id: 2,
       title: 'Agile Project Management',
       institution: 'Alison',
-      period: <text style={{color:'#000'}}>2025</text>,
+      period: '2025',
       certificate: 'https://alison.com/certification/check/64fd7dc8e0'
     },
     {
       id: 3,
       title: 'Internet & Web Development',
       institution: 'Udemy',
-      period: <text style={{color:'#000'}}>2022</text>
+      period: '2022'
     },
   ];
 
+  // Shared class strings, edit here to restyle every card
+  const card = "rounded-xl border border-beige bg-panel p-6 text-left";
+  const subtitle = "relative mb-[30px] inline-block text-[1.8rem] font-bold text-ink after:absolute after:-bottom-2.5 after:left-1/2 after:h-[3px] after:w-[50px] after:-translate-x-1/2 after:bg-beige after:content-['']";
+  const year = "mb-2 inline-block rounded-lg bg-beige px-3 py-1 text-xs font-black whitespace-nowrap text-black";
+  const degree = "text-2xl font-bold text-ink";
+
   return (
-    <section id="education" className="education">
-      <div className="container">
-        <h2 className="section-title">My <span>Education</span></h2>
-        
-        <div className="education-container">
-          <div className="education-column">
-            <h3 className="education-subtitle">Academic Education</h3>
-            <div className="education-list">
-              {educations.map(edu => (
-                <div key={edu.id} className="education-item card">
-                  <div className="education-item-header">
-                    <span className="education-year">{edu.period}</span>
-                    <h4 className="education-degree">{edu.degree}</h4>
-                  </div>
-                  <p className="education-institution">{edu.institution}</p>
-                  <p className="education-location">{edu.location}</p>
+    <section id="education" className="bg-black py-10 text-center">
+      <SectionTitle>My <span>Education</span></SectionTitle>
+
+      <div className="mt-4 flex flex-col items-center justify-center gap-6 lg:flex-row lg:items-start">
+        <div className="w-full max-w-[550px] flex-1">
+          <h3 className={subtitle}>Academic Education</h3>
+          <div className="flex flex-col gap-6">
+            {educations.map(edu => (
+              <div key={edu.id} className={card}>
+                <div className="mb-2 items-start justify-between gap-4">
+                  <span className={year}>{edu.period}</span>
+                  <h4 className={degree}>{edu.degree}</h4>
                 </div>
-              ))}
-            </div>
+                <p className="mb-1 text-sm text-beige">{edu.institution}</p>
+                <p className="text-xs text-muted">{edu.location}</p>
+              </div>
+            ))}
           </div>
-          
-          <div className="education-column">
-            <h3 className="education-subtitle">Professional Courses</h3>
-            <div className="education-list">
-              {courses.map(course => (
-                <div key={course.id} className="education-item card">
-                  <div className="education-item-header">
-                    <span className="education-year">{course.period}</span>
-                    <h4 className="education-degree">{course.title}</h4>
-                  </div>
-                  <p className="education-institution">{course.institution}</p>
-                  {course.certificate && (
-                    <a href={course.certificate} target="_blank" rel="noopener noreferrer" className="certificate-link">
-                      <text style={{color:'brown'}}>View Certificate</text>
-                    </a>
-                  )}
+        </div>
+
+        <div className="w-full max-w-[550px] flex-1">
+          <h3 className={subtitle}>Professional Courses</h3>
+          <div className="flex flex-col gap-6">
+            {courses.map(course => (
+              <div key={course.id} className={card}>
+                <div className="mb-2 items-start justify-between gap-4">
+                  <span className={year}>{course.period}</span>
+                  <h4 className={degree}>{course.title}</h4>
                 </div>
-              ))}
-            </div>
+                <p className="mb-1 text-sm text-beige">{course.institution}</p>
+                {course.certificate && (
+                  <a href={course.certificate} target="_blank" rel="noopener noreferrer" className="text-xs font-medium hover:underline">
+                    View Certificate &rarr;
+                  </a>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -89,4 +93,4 @@ const Education = () => {
   );
 };
 
-export default Education; 
+export default Education;

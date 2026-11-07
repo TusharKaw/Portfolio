@@ -1,5 +1,5 @@
 import React from 'react';
-import './Blog.css';
+import SectionTitle from './SectionTitle';
 import { motion } from 'framer-motion';
 import AnimatedSection from './AnimatedSection';
 import blog1 from '../assets/blogs/blog1.png';
@@ -75,44 +75,55 @@ const Blog = () => {
   }, []);
 
   return (
-    <section id="blog" className="blog-section">
-      <div className="container">
-        <AnimatedSection>
-          <h2 className="section-title" style={{color:'var(--primary-beige)'}}>Blogs</h2>
-        </AnimatedSection>
+    <section id="blog" className="bg-black py-10 text-center">
+      <AnimatedSection>
+        <SectionTitle>Blogs</SectionTitle>
+      </AnimatedSection>
 
-        <div className="blog-grid">
-          {blogPosts.map((post) => (
-            <AnimatedSection key={post.id}>
-              <motion.div 
-                className="blog-card card"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                transition={{ duration: 0.5 }}
-              >
-                <div className="blog-image">
-                  <img src={post.imageUrl} alt={post.title} />
-                  <a href={post.url} className="blog-overlay">
-                    <div className="blog-tags">
-                      {post.tags.map(tag => (
-                        <span key={tag} className="blog-tag">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </a>
-                </div>
-                <div className="blog-content">
-                  <span className="blog-date">{post.date}</span>
-                  <h3>{post.title}</h3>
-                  <p>{post.excerpt}</p>
-                  <a href={post.url} className="read-more">Read More</a>
-                </div>
-              </motion.div>
-            </AnimatedSection>
-          ))}
-        </div>
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-[repeat(auto-fill,minmax(350px,1fr))]">
+        {blogPosts.map((post) => (
+          <AnimatedSection key={post.id}>
+            <motion.div
+              className="group overflow-hidden rounded-[15px] border border-beige bg-panel text-left"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="relative h-[250px] w-full overflow-hidden">
+                <img
+                  src={post.imageUrl}
+                  alt={post.title}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.2]"
+                />
+                <a
+                  href={post.url}
+                  aria-label={post.title}
+                  className="absolute inset-0 flex flex-col justify-between p-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                >
+                  <div className="flex flex-wrap gap-2.5">
+                    {post.tags.map(tag => (
+                      <span key={tag} className="rounded-full bg-beige px-3 py-1 text-[0.8rem] text-ink">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </a>
+              </div>
+              <div className="p-6">
+                <span className="mb-2.5 block text-[0.9rem] text-muted">{post.date}</span>
+                <h3 className="mb-4 text-[1.2rem] font-semibold text-ink sm:text-[1.4rem]">{post.title}</h3>
+                <p className="mb-5 text-[0.95rem] leading-relaxed text-muted">{post.excerpt}</p>
+                <a
+                  href={post.url}
+                  className="relative inline-block font-medium text-muted after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:bg-beige after:transition-all after:duration-300 after:content-[''] hover:after:w-full"
+                >
+                  Read More
+                </a>
+              </div>
+            </motion.div>
+          </AnimatedSection>
+        ))}
       </div>
     </section>
   );
